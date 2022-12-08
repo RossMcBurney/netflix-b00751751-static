@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Form</title>
+  <style>
+    /* Add CSS styles here */
+    
+    
+    
+    form {
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  display: block;
+  margin: auto;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+    <div class="col-8" style="text-align: center;">
+        <h1>NETFLIX login</h1>
+      </div>
+ 
+  <form>
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br><br>
+    <input type="submit" value="Submit">
+  </form> 
+  
+  <script>
+    // Create an array of user objects, with each object containing a username and password
+    var users = [
+      {
+        username: 'ross',
+        password: 'megan1402'
+      },
+      {
+        username: 'Jon',
+        password: 'Winter'
+      },
+      // Add more users here as needed
+    ];
+    
+    // Get a reference to the form element
+    var form = document.querySelector('form');
+    
+    // Add a submit event listener to the form
+    form.addEventListener('submit', function(event) {
+      // Prevent the default form submission
+      event.preventDefault();
+      
+      // Get the values of the input fields
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      
+        // Check if the username and password are correct
+        var user = users.find(function(user) {
+        return user.username === username && user.password === password;
+      });
+      
+      if (user) {
+        // Redirect the user to the appropriate page based on their username
+        if (username === 'ross') {
+          window.location.href = 'index.html';
+        } else if (username === 'Jon') {
+          window.location.href = 'index user.html';
+        }
+        // Add more else if statements here for other users as needed
+      } else {
+        alert('Invalid username or password.');
+      }
+    });
+  </script>
+</body>
+</html>
